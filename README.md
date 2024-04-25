@@ -1,21 +1,24 @@
-# Challenge Instructions
+## Challenge Instructions
 - DATABASE H2
 - TOKEN AUTHORIZATION JWT
 - PASSWORD AND EMAIL WITH REGEX FILTER AND NOT NULL (EDITABLE)
 - ONE PERSON ALLOWED PER REGISTRATION (CHECKED BY EMAIL AND USERNAME)
 
-## RUN APPLICATION
-- gradle bootrun
+### RUN APPLICATION
+```
+gradle bootrun
+```
 
-## API REST
-- http://localhost:8080/api/v1/user
+### API REST
+http://localhost:8080/api/v1/user
 
-## ENDPOINT SIGNUP
+### ENDPOINT SIGNUP
 - POST Request
 - JSON Format
 - http://localhost:8080/api/v1/user/signup
 
-## REQUEST BODY DATA
+### REQUEST BODY DATA
+```
 {
 "username": "Marco Demergasso",
 "email": "marco@gmail.com",
@@ -26,3 +29,4 @@
 "countryCode": "30"
 }]
 }
+```
