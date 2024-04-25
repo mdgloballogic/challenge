@@ -1,0 +1,9 @@
+package com.bci.security;
+
+public interface RegexFilter {
+    
+    String PASSWORD_REGEX = "^(?=[^A-Z]*[A-Z])(?=\\D*\\d){2}\\w{8,12}$";
+    String EMAIL_REGEX = "^[a-zA-Z]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}$";
+	boolean regexPassword(String password);
+    boolean regexEmail(String email);
+}
