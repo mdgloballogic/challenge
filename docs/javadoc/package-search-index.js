@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.bci"},{"l":"com.bci.config"},{"l":"com.bci.controller"},{"l":"com.bci.dto"},{"l":"com.bci.exception"},{"l":"com.bci.model"},{"l":"com.bci.repository"},{"l":"com.bci.security"},{"l":"com.bci.service"}];updateSearchResults();

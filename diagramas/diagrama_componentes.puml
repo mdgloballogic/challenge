@@ -1,0 +1,76 @@
+@startuml
+
+package "Microservicio de Usuarios" {
+    component "UserController" as Controller
+    component "UserService" as Service
+    component "UserRepository" as Repository
+    component "JWTService" as JWT
+    component "Database (H2)" as DB
+    component "ExceptionHandler" as ExceptionHandler
+    component "User" as User
+    component "Phone" as Phone
+}
+
+Controller --> Service
+Service --> Repository
+Service --> JWT
+Repository --> DB
+DB --> User
+DB --> Phone
+Controller --> ExceptionHandler
+
+note right of Controller
+  **Endpoints:**
+  - /sign-up (POST)
+  - /login (GET)
+end note
+
+note right of Service
+  **Funcionalidades:**
+  - Servicio para Registrar usuarios
+  - Servicio para Login usuarios
+end note
+
+note right of Repository
+  **Funcionalidades:**
+  - Guarda y Recupera usuarios
+end note
+
+note right of JWT
+  **Funcionalidades:**
+  - Genera y Valida Tokens JWT
+end note
+
+note right of DB
+  **Almacena:**
+  - Usuarios
+  - Teléfonos
+end note
+
+note right of User
+  **Tabla APP_USER**
+    - UUID id;
+    - String name;
+    - String email;
+    - String password;
+    - List<Phone> phones = new ArrayList<>();
+    - LocalDateTime created;
+    - LocalDateTime lastLogin;
+    - String token;
+    - boolean isActive;
+end note
+
+note right of Phone
+  **Tabla PHONE**
+    - Long id;
+    - long number;
+    - int cityCode;
+    - String countryCode;
+end note
+
+note right of ExceptionHandler
+  **Funcionalidades:**
+  - Manejo de Excepciones
+end note
+
+@enduml

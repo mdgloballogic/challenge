@@ -1,0 +1,25 @@
+@startuml
+actor Cliente
+participant "UserController" as Controller
+participant "UserService" as Service
+participant "UserRepository" as Repository
+participant "JWTService" as JWT
+participant "Database (H2)" as DB
+
+Cliente -> Controller: POST /sign-up (JSON)
+Controller -> Service: Validar y procesar solicitud
+Service -> Service: Validar email y contraseña
+Service -> Repository: Verificar si el usuario existe
+Repository -> DB: Consultar usuario
+DB --> Repository: Usuario no existe
+Repository --> Service: Usuario no existe
+Service -> Service: Encriptar contraseña
+Service -> JWT: Generar token JWT
+JWT --> Service: Token generado
+Service -> Repository: Guardar usuario
+Repository -> DB: Persistir usuario
+DB --> Repository: Usuario guardado
+Repository --> Service: Usuario guardado
+Service --> Controller: Respuesta exitosa (JSON)
+Controller --> Cliente: Respuesta exitosa (JSON)
+@enduml
